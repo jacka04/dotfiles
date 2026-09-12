@@ -1,40 +1,19 @@
 #!/usr/bin/env bash
 
-clear
+bindings="
+Mod + Return        Abrir Terminal (Alacritty)
+Mod + d             Lanzador de aplicaciones (Rofi)
+Mod + k             Ver esta lista de atajos
+Mod + Shift + q     Cerrar ventana actual
+Mod + Shift + r     Recargar configuración de i3
+Mod + Shift + e     Salir de i3 (Cerrar sesión)
+Mod + f             Pantalla completa (Fullscreen)
+Mod + Shift + Space Alternar flotante / tiled
+Mod + Flechas/hjkl  Mover foco entre ventanas
+Mod + Shift + Flech Mover ventana de posición
+Mod + [1-9]         Cambiar al espacio de trabajo [1-9]
+Mod + Shift + [1-9] Mover ventana al espacio [1-9]
+"
 
-cat << "EOF"
-╭──────────────────────────────────────────────────────────╮
-│                   ATAJOS DE TECLADO (i3)                 │
-╰──────────────────────────────────────────────────────────╯
-
-  APLICACIONES
-  ──────────────────────────────────────────────────────────
-  Mod + Enter           Abrir terminal (Alacritty)
-  Mod + d               Lanzador de programas (Rofi)
-  Mod + b               Abrir navegador web
-
-  GESTIÓN DE VENTANAS
-  ──────────────────────────────────────────────────────────
-  Mod + Shift + q       Cerrar ventana enfocada
-  Mod + f               Pantalla completa (on/off)
-  Mod + Shift + Espacio Alternar ventana flotante / fija
-  Mod + Flechas         Cambiar foco entre ventanas
-  Mod + Shift + Flechas Mover ventana de sitio
-
-  ESPACIOS DE TRABAJO
-  ──────────────────────────────────────────────────────────
-  Mod + 1 .. 9          Cambiar al escritorio 1 al 9
-  Mod + Shift + 1 .. 9  Mover ventana al escritorio 1 al 9
-
-  SISTEMA Y CONTROL
-  ──────────────────────────────────────────────────────────
-  Mod + Shift + r       Reiniciar i3 (aplica cambios del rice)
-  Mod + k               Mostrar esta ventana de ayuda
-  Mod + l               Bloquear pantalla
-  Mod + Shift + e       Menú de apagado / cerrar sesión
-
-────────────────────────────────────────────────────────────
-          Presiona cualquier tecla para cerrar...
-EOF
-
-read -n 1 -s -r
+# Lanzar Rofi en modo menú interactivo con buscador
+echo "$bindings" | sed '/^[[:space:]]*$/d' | rofi -dmenu -i -p "Atajos" -mesg "Escribe para filtrar o pulsa Escape para salir"

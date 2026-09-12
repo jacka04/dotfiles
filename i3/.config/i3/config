@@ -18,7 +18,8 @@ font pango:monospace 8
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-
+#MENU DE KEYBINDINGS
+bindsym $mod+k exec --no-startup-id ~/.config/i3/scripts/keybindings.sh
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
@@ -34,7 +35,7 @@ exec_always --no-startup-id autotiling
 
 # Ventana flotante de ayuda (cheatsheet)
 for_window [instance="cheatsheet"] floating enable, resize set 680 500, move position center
-bindsym $mod+k exec --no-startup-id alacritty --class cheatsheet -e ~/.config/i3/scripts/keybindings.sh
+#bindsym $mod+k exec --no-startup-id alacritty --class cheatsheet -e ~/.config/i3/scripts/keybindings.sh
 
 
 
@@ -63,7 +64,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+w kill
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec --no-startup-id dmenu_run
+bindsym $mod+space exec --no-startup-id rofi -show drun -show-icons
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
