@@ -19,7 +19,7 @@ font pango:monospace 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 #MENU DE KEYBINDINGS
-bindsym $mod+k exec --no-startup-id ~/.config/i3/scripts/keybindings.sh
+bindsym $mod+k exec --no-startup-id ~/.local/bin/keybindings.sh
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
@@ -167,7 +167,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # Menú de apagado con Rofi
-bindsym $mod+Shift+e exec --no-startup-id ~/.local/bin/powermenu.sh
+bindsym Control+Mod1+Delete exec --no-startup-id ~/.local/bin/powermenu.sh
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -195,6 +195,32 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+# Nombre del workspace scratchpad
+#set $ws_scratch "scratch"
+
+# Mover ventana actual al scratchpad workspace
+#bindsym $mod+Shift+s move container to workspace $ws_scratch
+
+# Alternar (toggle) entre el scratchpad y tu escritorio anterior
+#bindsym $mod+s workspace $ws_scratch; workspace back_and_forth
+
+
+# Habilitar alternancia rápida entre el workspace actual y el anterior
+workspace_auto_back_and_forth yes
+
+# Definir el nombre del scratchpad (con icono o texto claro)
+set $ws_scratch "scratch"
+
+# Mover ventana al scratchpad
+bindsym $mod+Shift+s move container to workspace $ws_scratch
+
+# Alternar entrada y salida con una sola tecla
+#bindsym $mod+s workspace $ws_scratch
+bindsym $mod+s exec --no-startup-id ~/.local/bin/scratchpad-toggle.sh
+
+
+ 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
