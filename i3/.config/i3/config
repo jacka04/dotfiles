@@ -37,7 +37,8 @@ exec_always --no-startup-id autotiling
 for_window [instance="cheatsheet"] floating enable, resize set 680 500, move position center
 #bindsym $mod+k exec --no-startup-id alacritty --class cheatsheet -e ~/.config/i3/scripts/keybindings.sh
 
-
+#BLOQUEIG DE PANTALLA
+bindsym $mod+l exec --no-startup-id betterlockscreen -l blur
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
