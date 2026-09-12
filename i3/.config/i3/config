@@ -29,7 +29,8 @@ exec --no-startup-id dex --autostart --environment i3
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
+# Alternar divisiones horizontal/vertical automáticamente según el tamaño
+exec_always --no-startup-id autotiling
 
 # Ventana flotante de ayuda (cheatsheet)
 for_window [instance="cheatsheet"] floating enable, resize set 680 500, move position center
