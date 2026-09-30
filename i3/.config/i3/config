@@ -113,12 +113,17 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
+#SETEAR 144HZ
+exec_always --no-startup-id xrandr --output DP-1 --mode 1920x1080 --rate 143.85
 # change focus between tiling / floating windows
 #bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+#WALLPAPER
+
+exec_always --no-startup-id feh --bg-fill /home/jacka/Imágenes/bosc.jpg
+
 
 # focus the child container
 #bindsym $mod+d focus child
